@@ -1,0 +1,94 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Boris Bilich
+email: bilichboris1999@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Hello! I am Boris and I do maths
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://bilichboris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: BilichBoris
+github_username: bilichboris
+#linkedin_username: your-linkedin-username # add your LinkedIn username if you want to include a LinkedIn link
+#google_analytics: UA-XXXXXXXX-X # add your Google Analytics tracking ID if you want to track site visitors
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Menu items
+header_pages:
+  - cv.md
+  - publications.md
+  - talks.md
+
+# Author information (used in the footer)
+#author:
+#  name: Boris Bilich
+#  email: bilichboris1999@gmail.com
+#  github: bilichboris
+#  twitter: BilichBoris
+#  linkedin: your-linkedin-username # add your LinkedIn username if you want to include a LinkedIn link
+
+# Social icons
+minima:
+  social_icons:
+    twitter: https://twitter.com/BilichBoris
+    github: https://github.com/bilichboris
+    linkedin: https://linkedin.com/in/your-linkedin-username # add your LinkedIn profile URL if you want to include a LinkedIn link
+  author_name: Boris Bilich
+  author_email: bilichboris1999@gmail.com
+  author_github: bilichboris
+  author_twitter: BilichBoris
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
+
+collections:
+  talks:
+    output: true
+    permalink: /talks/:path/
+
+
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
