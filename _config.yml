@@ -26,6 +26,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bilichboris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: BilichBoris
 github_username: bilichboris
+profile_picture: /assets/images/profile.jpg
 #linkedin_username: your-linkedin-username # add your LinkedIn username if you want to include a LinkedIn link
 #google_analytics: UA-XXXXXXXX-X # add your Google Analytics tracking ID if you want to track site visitors
 
