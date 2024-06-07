@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: University of Haifa #<a href='#'>University of Haifa</a>. Address. Contacts. Moto. Etc.
+subtitle: University of Haifa, Georg-August-Universität Göttingen #<a href='#'>University of Haifa</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
@@ -15,10 +15,13 @@ profile:
 
 news: false # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 ---
 
-Hello! I am a PhD student working in the field of operator algebras.
+Since October 2023, I am a PhD student cosupervised by <a href='https://www.uni-math.gwdg.de/rameyer/website/'>Ralf Meyer</a> at Georg-August-Universität Göttingen and <a href='https://adoronmath.wordpress.com/'>Adam Dor-On</a> at University of Haifa.
+Before starting my PhD, I was a Master student in Georg-August-Universität Göttingen and a Bachelor student in HSE University, Moscow.
+
+I work in the field of operator algebras and noncommutative geometry. My primary research focus right now is interpretation of constructions such as (higher-rank, topological) graph C*-algebras, Leavitt path algebras, and Cuntz-Pimsner algebras as limits of diagrams in suitable bicategories. The limit universal property then can provide a lot of information about these objects.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
