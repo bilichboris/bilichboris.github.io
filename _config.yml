@@ -122,7 +122,7 @@ google_analytics: G-NP9WCSBSNB # your Google Analytics measurement ID (format: G
 cronitor_analytics: # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
-google_site_verification: # your google-site-verification ID (Google Search Console)
+google_site_verification: XalGhAZN1DPYv78pRk7mlRuU2Xnp4avw6HlGgx0T87k # your google-site-verification ID (Google Search Console)
 bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
