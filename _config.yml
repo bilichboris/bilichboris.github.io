@@ -322,8 +322,8 @@ scholar:
   query: "@*"
   group_by: type, year
   group_order: descending
-  type_order: [misc, article]
-  ype_names: { misc: Preprints }
+  type_order: [article, misc]
+  type_names: { misc: Preprints }
 
 # Display different badges withs stats for your publications
 enable_publication_badges:
