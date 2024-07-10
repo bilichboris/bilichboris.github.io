@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: University of Haifa, Georg-August-Universität Göttingen #<a href='#'>University of Haifa</a>. Address. Contacts. Moto. Etc.
 
@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: > 
-    (Taking a camouflage 101 lesson)
+    Goat incognito.
   # <p>555 your office number</p>
   # <p>123 your address street</p>
   # <p>Your City, State 12345</p>
