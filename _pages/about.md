@@ -8,7 +8,7 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: > 
+  more_info: >
     Goat incognito.
   # <p>555 your office number</p>
   # <p>123 your address street</p>
@@ -22,7 +22,7 @@ social: true # includes social icons at the bottom of the page
 Since October 2023, I am a PhD student cosupervised by <a href='https://www.uni-math.gwdg.de/rameyer/website/'>Ralf Meyer</a> at Georg-August-Universität Göttingen and <a href='https://adoronmath.wordpress.com/'>Adam Dor-On</a> at University of Haifa.
 Before starting my PhD, I was a Master student in Georg-August-Universität Göttingen and a Bachelor student at HSE University, Moscow.
 
-I work in the field of operator algebras and noncommutative geometry. My primary research focus right now is interpretation of constructions such as (higher-rank, topological) graph C*-algebras, Leavitt path algebras, and Cuntz-Pimsner algebras as limits of diagrams in suitable bicategories. The limit universal property then can provide a lot of information about these objects.
+I work in the field of operator algebras and noncommutative geometry. My primary research focus right now is interpretation of constructions such as (higher-rank, topological) graph C\*-algebras, Leavitt path algebras, and Cuntz-Pimsner algebras as limits of diagrams in suitable bicategories. The limit universal property then can provide a lot of information about these objects.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
