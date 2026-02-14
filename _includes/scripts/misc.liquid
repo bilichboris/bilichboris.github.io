@@ -35,6 +35,10 @@
 <!-- Load Common JS -->
 <script src="{{ '/assets/js/no_defer.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/common.js' | relative_url | bust_file_cache }}"></script>
+<script>
+  window.funnyIbexImagePath = "{{ '/assets/img/funny-ibex.png' | relative_url }}";
+</script>
+<script defer src="{{ '/assets/js/funny-ibex.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/copy_code.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 
 <!-- Jupyter Open External Links New Tab -->

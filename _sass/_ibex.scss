@@ -1,0 +1,94 @@
+.funny-ibex {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4.1rem;
+  height: 4.1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  box-shadow: 0 0.35rem 1rem color-mix(in srgb, #000 18%, transparent);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  z-index: 1600;
+  transition:
+    top 430ms cubic-bezier(0.2, 0.92, 0.22, 1),
+    left 430ms cubic-bezier(0.2, 0.92, 0.22, 1),
+    transform 120ms ease;
+}
+
+.funny-ibex img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.funny-ibex:hover {
+  transform: translateY(-2px) rotate(-8deg);
+}
+
+.funny-ibex:active {
+  transform: scale(0.94);
+}
+
+.funny-ibex::after {
+  content: "caught me?";
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--global-bg-color) 12%, #fff 88%);
+  color: #7a4f00;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transform: translate(-50%, 8px) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.funny-ibex.is-escaping {
+  animation: ibex-jolt 270ms ease-out;
+}
+
+.funny-ibex.show-caption::after {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@keyframes ibex-jolt {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  35% {
+    transform: scale(0.86) rotate(-14deg);
+  }
+  100% {
+    transform: scale(1) rotate(9deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funny-ibex {
+    transition:
+      top 1ms linear,
+      left 1ms linear,
+      transform 1ms linear;
+  }
+
+  .funny-ibex.is-escaping {
+    animation: none;
+  }
+}
