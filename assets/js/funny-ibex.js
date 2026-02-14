@@ -67,9 +67,12 @@
 
   function scheduleWander() {
     clearTimeout(wanderTimer);
-    wanderTimer = window.setTimeout(function () {
-      moveIbex(true);
-    }, randomInt(WANDER_MIN_MS, WANDER_MAX_MS));
+    wanderTimer = window.setTimeout(
+      function () {
+        moveIbex(true);
+      },
+      randomInt(WANDER_MIN_MS, WANDER_MAX_MS)
+    );
   }
 
   function moveIbex(isEscaping) {
