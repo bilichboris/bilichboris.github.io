@@ -187,7 +187,7 @@ GEM
       stringio
       time
       uri
-    ostruct (0.6.1)
+    ostruct (0.6.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (7.0.2)
