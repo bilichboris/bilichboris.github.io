@@ -4,14 +4,13 @@ on:
   push:
     branches:
       - master
-      - main
     paths:
       - "assets/**"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
+      - "**/*.html"
+      - "**/*.js"
+      - "**/*.liquid"
       - "**/*.md"
-      - "**.yml"
+      - "**/*.yml"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
       - "!.github/workflows/deploy-image.yml"
@@ -22,14 +21,13 @@ on:
   pull_request:
     branches:
       - master
-      - main
     paths:
       - "assets/**"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
+      - "**/*.html"
+      - "**/*.js"
+      - "**/*.liquid"
       - "**/*.md"
-      - "**.yml"
+      - "**/*.yml"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
       - "!.github/workflows/deploy-image.yml"
@@ -38,9 +36,17 @@ on:
       - "!.github/workflows/prettier.yml"
       - "!lighthouse_results/**"
 
+permissions:
+  contents: read
+
+concurrency:
+  group: broken-links-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   link-checker:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 

@@ -4,14 +4,13 @@ on:
   push:
     branches:
       - master
-      - main
     paths:
       - "assets/**"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
+      - "**/*.html"
+      - "**/*.js"
+      - "**/*.liquid"
       - "**/*.md"
-      - "**.yml"
+      - "**/*.yml"
       - "Gemfile"
       - "Gemfile.lock"
       - "!.github/workflows/axe.yml"
@@ -30,14 +29,13 @@ on:
   pull_request:
     branches:
       - master
-      - main
     paths:
       - "assets/**"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
+      - "**/*.html"
+      - "**/*.js"
+      - "**/*.liquid"
       - "**/*.md"
-      - "**.yml"
+      - "**/*.yml"
       - "Gemfile"
       - "Gemfile.lock"
       - "!.github/workflows/axe.yml"
@@ -58,10 +56,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: deploy-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -70,25 +72,32 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
-      - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@main
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          commitChange: false
-          valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
+          python-version: "3.x"
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Create CI config override ⚙️
+        run: |
+          cat > _config_ci.yml << 'EOF'
+          giscus:
+            repo: "${{ github.repository }}"
+          EOF
       - name: Install ImageMagick 🖼️
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
       - name: Install and Build 🔧
         run: |
-          pip3 install --upgrade jupyter
+          python -m pip install --upgrade pip jupyter
           export JEKYLL_ENV=production
-          bundle exec jekyll build
+          bundle exec jekyll build --config _config.yml,_config_ci.yml
       - name: Purge unused CSS 🧹
         run: |
-          npm install -g purgecss
+          npm install --global purgecss
           purgecss -c purgecss.config.js
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
