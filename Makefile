@@ -5,8 +5,9 @@ PORT ?= 4000
 LIVERELOAD_PORT ?= 35730
 PODMAN_COMPOSE ?= $(shell command -v podman-compose >/dev/null 2>&1 && echo podman-compose || echo "podman compose")
 COMPOSE_FILE ?= docker-compose.yml
-OBSERVER_LIB ?= $(shell ruby -e "spec = Gem::Specification.find_all_by_name('observer').first; print(spec ? File.join(spec.full_gem_path, 'lib') : '')")
-JEKYLL_RUN = RUBYLIB="$(if $(OBSERVER_LIB),$(OBSERVER_LIB):)$$RUBYLIB" bundle exec jekyll
+BUNDLE_GEM_DIR ?= $(firstword $(wildcard $(CURDIR)/vendor/bundle/ruby/*))
+OBSERVER_LIB ?= $(firstword $(wildcard $(BUNDLE_GEM_DIR)/gems/observer-*/lib))
+JEKYLL_RUN = GEM_HOME="$(BUNDLE_GEM_DIR)" GEM_PATH="$(BUNDLE_GEM_DIR)" RUBYLIB="$(if $(OBSERVER_LIB),$(OBSERVER_LIB):)$$RUBYLIB" bundle exec jekyll
 
 .PHONY: help setup-local check-observer preview-local preview-live build-local preview-podman stop-podman clean
 
@@ -25,7 +26,7 @@ setup-local:
 
 check-observer:
 	@if [ -z "$(OBSERVER_LIB)" ]; then \
-		echo "Missing 'observer' gem in system Ruby. Install with: gem install observer"; \
+		echo "Missing 'observer' gem in local bundle. Run: make setup-local"; \
 		exit 1; \
 	fi
 
