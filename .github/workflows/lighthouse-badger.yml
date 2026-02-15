@@ -1,6 +1,6 @@
 # Lighthouse-Badger-Easy | GitHub Action Workflow
 #
-# Description: Generates, adds & updates manually/automatically Lighthouse badges & reports from one/multiple input URL(s) to the current repository & main branch with minimal settings
+# Description: Generates, adds & updates manually/automatically Lighthouse badges & reports from one/multiple input URL(s) to the current repository & master branch with minimal settings
 # Author: Sitdisch
 # Source: https://github.com/myactionway/lighthouse-badger-workflows
 # License: MIT
@@ -17,7 +17,7 @@ env:
   URLS: https://alshedivat.github.io/al-folio/
   TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN
   # If any of the following env is blank, a default value is used instead
-  REPO_BRANCH: "${{ github.repository }} master" # target repository & branch e.g. 'dummy/mytargetrepo main'
+  REPO_BRANCH: "${{ github.repository }} master" # target repository & branch e.g. 'dummy/mytargetrepo master'
   MOBILE_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --throttling.cpuSlowdownMultiplier=2"
   DESKTOP_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --preset=desktop --throttling.cpuSlowdownMultiplier=1"
 
@@ -30,6 +30,13 @@ on:
   # THAT'S IT; YOU'RE DONE;
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: lighthouse-badger-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 ########################################################################
 # THAT'S IT; YOU DON'T HAVE TO DEFINE ANYTHING IN THE FOLLOWING
 ########################################################################
@@ -41,8 +48,8 @@ jobs:
     steps:
       - name: Preparatory Tasks
         run: |
-          REPOSITORY=`expr "${{ env.REPO_BRANCH }}" : "\([^ ]*\)"`
-          BRANCH=`expr "${{ env.REPO_BRANCH }}" : ".* \([^ ]*\)"`
+          REPOSITORY="${REPO_BRANCH%% *}"
+          BRANCH="${REPO_BRANCH##* }"
           echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
         env:

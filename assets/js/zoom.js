@@ -9,7 +9,7 @@ $(document).ready(function () {
     try {
       const matrix = new DOMMatrixReadOnly(transformValue);
       return Math.hypot(matrix.a, matrix.b) || 1;
-    } catch {
+    } catch (error) {
       const scaleMatch = transformValue.match(/scale\(([-\d.]+)\)/);
       return scaleMatch ? Number.parseFloat(scaleMatch[1]) || 1 : 1;
     }

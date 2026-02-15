@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - main
     paths:
       - "bin/entry_point.sh"
       - "Dockerfile"
@@ -13,10 +12,18 @@ on:
       - "package.json"
       - "package-lock.json"
 
+permissions:
+  contents: read
+
+concurrency:
+  group: docker-image-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'alshedivat'
+    timeout-minutes: 40
 
     steps:
       - name: Checkout
@@ -35,9 +42,11 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64/v8
           tags: amirpourmand/al-folio
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
