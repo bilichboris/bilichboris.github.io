@@ -41,6 +41,10 @@ jobs:
             repo: "${{ github.repository }}"
           baseurl: ""
           EOF
+      - name: Install ImageMagick 🖼️
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
       - name: Install and Build 🔧
         run: |
           python -m pip install --upgrade pip jupyter
