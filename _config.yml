@@ -7,8 +7,7 @@ first_name: Boris
 middle_name:
 last_name: Bilich
 email: bilichboris1999@gmail.com
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  PhD student at Haifa university and Goettingen university working in the field of operator algebras
+description: "PhD student in operator algebras and noncommutative geometry at the University of Haifa and the University of Göttingen."
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -61,9 +60,9 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: https://bilichboris.github.io/assets/img/prof_pic.jpg # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Social integration

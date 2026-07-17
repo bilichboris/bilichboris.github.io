@@ -3,6 +3,8 @@ layout: about
 title: About
 permalink: /
 subtitle: University of Haifa, Georg-August-Universität Göttingen #<a href='#'>University of Haifa</a>. Address. Contacts. Moto. Etc.
+description: PhD student in operator algebras and noncommutative geometry at the University of Haifa and the University of Göttingen.
+og_image: https://bilichboris.github.io/assets/img/prof_pic.jpg
 
 profile:
   align: right
