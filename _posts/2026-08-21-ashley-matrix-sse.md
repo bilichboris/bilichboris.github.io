@@ -7,6 +7,8 @@ tags: [symbolic-dynamics, strong-shift-equivalence]
 categories: [mathematics]
 ---
 
+**Update (22 August 2026):** Emmanuel Jeandel contacted me to share that he found a strong shift equivalence certificate a year ago, although the result was not made public. His arXiv paper is expected to appear on 23 August 2026. The certificates are available [on his website](https://members.loria.fr/EJeandel/sse.html). His work covers a much broader class of matrices, including Baker matrices and their polynomial generalizations. I therefore claim no precedence; Emmanuel deserves full credit for the result.
+
 It had been an open problem since 1989 whether Ashley's eight-by-eight matrix is strong shift equivalent to the one-by-one matrix \([2]\). Today, GPT-5.6 Sol found an SSE certificate of length 69! This gives more evidence that Williams' conjecture holds for full shifts by ruling out a long-standing counterexample candidate.
 
 I was trying to find the certificate myself for some time. But honestly, I spent much more time trying to prove that no strong shift equivalence exists here. I am quite surprised that such a long certificate could be found in such a huge SSE graph. In the coming weeks, I will try to digest it and hope to return with an explanation of how this result was achieved.
